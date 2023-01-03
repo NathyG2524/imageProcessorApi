@@ -12,7 +12,7 @@ interface Query {
   height?: string;
 }
 
-routes.get("/images", async (req: Request, res: Response) => {
+routes.get("/images", async (req: Request, res: Response) : Promise<void> => {
 	const params: Query = req.query;
 	console.log(params);
 
