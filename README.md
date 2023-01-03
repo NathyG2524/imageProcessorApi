@@ -83,7 +83,7 @@ santamonica
 
 1. GET /images: gets resize images 
 ```
-http://localhost:5000/api/images?filename=encenadaport&width=100&height=100
+http://localhost:5000/api/images?filename=encenadaport.jpg&width=100&height=100
 ```
 
 ### Errors
