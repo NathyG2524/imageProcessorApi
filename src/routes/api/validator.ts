@@ -12,12 +12,12 @@ const validator = async (query: Query): Promise<string | null> => {
 	}
 
 	if (query.height && query.width) {
-		const height: number = parseInt(query.height);
+		const height: number  = +(query.height as string);
 		if (Number.isNaN(height) || height < 1) {
 			return "Please enter a valid height";
 		}
 
-		const width: number = parseInt(query.width);
+		const width: number  = +(query.width as string);
 		if (Number.isNaN(width) || width < 1) {
 			return "Please enter a valid width";
 		}
@@ -29,13 +29,11 @@ const validator = async (query: Query): Promise<string | null> => {
 
 	const file = `./assets/images/full/${query.filename}`;
 	if (!fs.existsSync(file)) {
-		// console.error(err);
 		return "File does not exists";
 	}
 
 	const cache = `./assets/images/full/cache/${query.width}x${query.height}${query.filename}`;
 	if (fs.existsSync(cache)) {
-		// console.error(err);
 		return "Thumb does  exists";
 	}
 	return null;
