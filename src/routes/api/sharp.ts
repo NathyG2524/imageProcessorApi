@@ -7,7 +7,7 @@ interface Query {
     height?: string;
   }
 
-const resize = async (params: Query) : Promise<void> => { 
+const resize = async (params: Query) : Promise<boolean> => { 
 	sharp(`./assets/images/full/${params.filename}`)
 		.resize(Number(params.width), Number(params.height))
 		.toFile(
@@ -16,6 +16,7 @@ const resize = async (params: Query) : Promise<void> => {
 			// output.jpg is a 300 pixels wide and 200 pixels high image
 			// containing a scaled and cropped version of input.jpg
 			}
-		);};
+		);
+	return true;};
 
 export default resize;
