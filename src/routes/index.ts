@@ -30,16 +30,17 @@ routes.get("/images", async (req: Request, res: Response) : Promise<void> => {
 	}
 
 	if (val === null) {
-		// async wait for resize function ?
-		await resize(params)
-			.then(function () {
-				res.sendFile(
-					path.join(
-						__dirname,
-						`../../assets/images/full/cache/${params.width}x${params.height}${params.filename}`
-					)
-				);
-			});
+		await resize(params);
+		setTimeout(() => {
+			res.sendFile(
+				path.join(
+					__dirname,
+					`../../assets/images/full/cache/${params.width}x${params.height}${params.filename}`
+				)
+			);
+		}, 1000);
+		
+			
 
 
 
