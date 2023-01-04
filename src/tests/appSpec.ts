@@ -3,7 +3,6 @@ import app from "../app";
 
 const request = supertest(app);
 
-
 it("returns 404 for invalid endpoint", async () => {
 	const response: supertest.Response = await request.get("/unknown");
 
